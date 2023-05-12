@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using UnityEngine;
 
 namespace PuzzleGames
 {
@@ -24,7 +25,7 @@ namespace PuzzleGames
         private void SwapColor(DraggableColoredCircle arg2)
         {
             var currentNode = currentColor.nodeHolder;
-
+            
             currentColor.transform.position = arg2.transform.position;
             currentColor.transform.SetParent(arg2.nodeHolder.transform);
             currentColor.nodeHolder = arg2.nodeHolder;
@@ -34,7 +35,6 @@ namespace PuzzleGames
             arg2.nodeHolder = currentNode;
         }
 
-      
     }
 
 }

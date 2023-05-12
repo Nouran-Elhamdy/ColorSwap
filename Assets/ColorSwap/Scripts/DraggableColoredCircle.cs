@@ -11,10 +11,17 @@ namespace PuzzleGames
         public bool isDragging;
         public bool canSwap;
         DraggableColoredCircle other;
+        Color coloredAlpha;
+        [SerializeField] SpriteRenderer effect;
         #endregion
 
         #region Unity Callbacks
 
+        private void Start()
+        {
+            coloredAlpha = GetComponent<SpriteRenderer>().color;
+            coloredAlpha.a = 0.2f;
+        }
         private void Update()
         {
             if(isDragging)
@@ -26,6 +33,8 @@ namespace PuzzleGames
         private void OnMouseDown()
         {
             isDragging = true;
+            effect.color = coloredAlpha;
+            effect.gameObject.SetActive(true);
         }
         private void OnMouseUp()
         {
@@ -34,11 +43,13 @@ namespace PuzzleGames
             if (!canSwap)
             {
                 transform.position = nodeHolder.transform.position;
+
             }
             else
             {
                 NodeManager.OnCirclesCollided.Invoke(other);
             }
+            effect.gameObject.SetActive(false);
         }
         private void OnTriggerEnter2D(Collider2D collision)
         {
