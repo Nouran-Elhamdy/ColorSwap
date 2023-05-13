@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace PuzzleGames
 {
-    [RequireComponent(typeof(BoxCollider2D))]
+    [RequireComponent(typeof(CircleCollider2D))]
     public class DraggableColoredCircle : MonoBehaviour
     {
         #region Public Variables
@@ -25,26 +25,38 @@ namespace PuzzleGames
         }
         private void Update()
         {
-            if(isDragging)
-            {
-                transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3(0,0,10);
-                Manager.NodeManager.currentColor = this;
-            }
+            UpdateCirclePosition();
         }
         private void OnMouseDown()
+        {
+            DragCircle();
+        }
+        private void OnMouseUp()
+        {
+            ReleaseCircle();
+        }
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (collision.TryGetComponent(out other) && Manager.NodeManager.currentColor == this)
+            {
+                canSwap = Manager.NodeManager.IsConnectedToNode(nodeHolder, other.nodeHolder);
+            }
+        }
+
+        private void DragCircle()
         {
             isDragging = true;
             effect.color = circleColor;
             effect.gameObject.SetActive(true);
         }
-        private void OnMouseUp()
+
+        private void ReleaseCircle()
         {
             isDragging = false;
 
             if (!canSwap)
             {
                 transform.position = nodeHolder.transform.position;
-
             }
             else
             {
@@ -53,11 +65,13 @@ namespace PuzzleGames
             }
             effect.gameObject.SetActive(false);
         }
-        private void OnTriggerEnter2D(Collider2D collision)
+
+        private void UpdateCirclePosition()
         {
-            if (collision.TryGetComponent(out other) && Manager.NodeManager.currentColor == this)
+            if (isDragging)
             {
-                canSwap = Manager.NodeManager.IsConnectedToNode(this.nodeHolder, other.nodeHolder);
+                transform.position = Camera.main.ScreenToWorldPoint(Input.mousePosition) + new Vector3(0, 0, 10);
+                Manager.NodeManager.currentColor = this;
             }
         }
         #endregion

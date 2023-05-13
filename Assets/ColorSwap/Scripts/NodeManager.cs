@@ -26,14 +26,17 @@ namespace PuzzleGames
         private void SwapColor(DraggableColoredCircle arg2)
         {
             var currentNode = currentColor.nodeHolder;
+            var color = currentColor.nodeHolder.occuppiedColor;
 
             currentColor.transform.position = arg2.transform.position;
             currentColor.transform.SetParent(arg2.nodeHolder.transform);
+            currentColor.nodeHolder.occuppiedColor = arg2.nodeHolder.occuppiedColor;
             currentColor.nodeHolder = arg2.nodeHolder;
 
-            Debug.Log("current color " + currentColor.nodeHolder.occuppiedColor);
+            arg2.nodeHolder.occuppiedColor = color;
             arg2.transform.position = currentNode.transform.position;
             arg2.transform.SetParent(currentNode.transform);
+
             arg2.nodeHolder = currentNode;
 
             OnSwappedCircle?.Invoke();

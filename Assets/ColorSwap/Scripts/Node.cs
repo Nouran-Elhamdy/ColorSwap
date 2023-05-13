@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Linq;
+using TMPro;
 
 namespace PuzzleGames
 {
@@ -9,12 +10,19 @@ namespace PuzzleGames
 
         public Node[] connectedNodes;
         public Color occuppiedColor;
+
         #endregion
 
         public bool IsColorRepeated()
         {
-            Debug.Log(connectedNodes.Any(connectedNode => connectedNode.occuppiedColor == occuppiedColor));
-           return connectedNodes.Any(connectedNode => connectedNode.occuppiedColor == occuppiedColor);
+            if (connectedNodes.Length > 1)
+            {
+                return connectedNodes.Any(connectedNode => connectedNode.occuppiedColor.CompareRGB(occuppiedColor));
+            }
+            else
+            {
+                return false;
+            }
         }
     }
 }

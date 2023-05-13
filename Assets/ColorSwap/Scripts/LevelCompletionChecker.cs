@@ -35,11 +35,10 @@ namespace PuzzleGames
         }
         #endregion
 
-        ///TODO Swap color in node to test if level is completed or not
         #region Public Methods
         public bool IsLevelCompleted()
         {
-            return allLevelNodes.Any(node => node.IsColorRepeated() == true? false : true);
+            return !allLevelNodes.Any(node => node.IsColorRepeated());
         }
         #endregion
     }

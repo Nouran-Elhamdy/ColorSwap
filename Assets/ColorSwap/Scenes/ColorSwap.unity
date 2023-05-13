@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!114 &126962836 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3276536083456871370, guid: ccd57c1d35aaef94087d25360c369d6f, type: 3}
+  m_PrefabInstance: {fileID: 7373569835127331829}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157576da1f3e5fa4abb9c5849433ca9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &224270693
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,6 +351,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 246258703}
   m_CullTransparentMesh: 1
+--- !u!114 &351982289 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 827243810677659138, guid: ccd57c1d35aaef94087d25360c369d6f, type: 3}
+  m_PrefabInstance: {fileID: 7373569835127331829}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157576da1f3e5fa4abb9c5849433ca9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &430117716
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,6 +837,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1287542004}
   m_CullTransparentMesh: 1
+--- !u!114 &1289817016 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 915342639427203234, guid: ccd57c1d35aaef94087d25360c369d6f, type: 3}
+  m_PrefabInstance: {fileID: 7373569835127331829}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157576da1f3e5fa4abb9c5849433ca9a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1300678563
 GameObject:
   m_ObjectHideFlags: 0
@@ -1130,6 +1163,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3690552127549590960, guid: ccd57c1d35aaef94087d25360c369d6f, type: 3}
+      propertyPath: nodeHolder
+      value: 
+      objectReference: {fileID: 351982289}
+    - target: {fileID: 3690552127563294973, guid: ccd57c1d35aaef94087d25360c369d6f, type: 3}
+      propertyPath: nodeHolder
+      value: 
+      objectReference: {fileID: 1289817016}
+    - target: {fileID: 3690552127950060642, guid: ccd57c1d35aaef94087d25360c369d6f, type: 3}
+      propertyPath: nodeHolder
+      value: 
+      objectReference: {fileID: 126962836}
     - target: {fileID: 6929963691519547736, guid: ccd57c1d35aaef94087d25360c369d6f, type: 3}
       propertyPath: m_RootOrder
       value: 4
