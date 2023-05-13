@@ -25,14 +25,20 @@ namespace PuzzleGames
         }
         private void Update()
         {
+            if (!Manager.LevelManager.isGameRunning) return;
+
             UpdateCirclePosition();
         }
         private void OnMouseDown()
         {
+            if (!Manager.LevelManager.isGameRunning) return;
+
             DragCircle();
         }
         private void OnMouseUp()
         {
+            if (!Manager.LevelManager.isGameRunning) return;
+
             ReleaseCircle();
         }
         private void OnTriggerEnter2D(Collider2D collision)

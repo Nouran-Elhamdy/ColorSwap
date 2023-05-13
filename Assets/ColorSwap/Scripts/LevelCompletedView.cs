@@ -12,20 +12,22 @@ namespace PuzzleGames
         [SerializeField] GameObject gameCompletedRect;
         [SerializeField] GameObject nextLevelRect;
 
+        [SerializeField] GameObject confetti;
+
+        private void Start()
+        {
+            confetti.gameObject.SetActive(true);   
+        }
         private void OnEnable()
         {
+            Manager.LevelManager.isGameRunning = false;
+            confetti.gameObject.SetActive(true);
             nextLevelButton.onClick.AddListener(OnClickNextLevelButton);
             quitGameButton.onClick.AddListener(OnClicQuitGameButton);
         }
-
-        private void OnClicQuitGameButton()
-        {
-            Application.Quit();
-            Debug.Log("Quit Game.");
-        }
-
         private void OnDisable()
         {
+           if(confetti) confetti.gameObject.SetActive(false);
             nextLevelButton.onClick.RemoveListener(OnClickNextLevelButton);
             quitGameButton.onClick.RemoveListener(OnClicQuitGameButton);
         }
@@ -42,6 +44,11 @@ namespace PuzzleGames
                 LevelManager.OnLevelCompleted?.Invoke();
             }
            
+        }
+        private void OnClicQuitGameButton()
+        {
+            Application.Quit();
+            Debug.Log("Quit Game.");
         }
     }
 }

@@ -14,7 +14,12 @@ namespace PuzzleGames
         public int currentLevelNumber;
         public GameObject currentLevel;
         public List<LevelData> gameLevels = new List<LevelData>();
+        public bool isGameRunning;
 
+        private void Start()
+        {
+            isGameRunning = true;
+        }
         private void OnEnable()
         {
             OnLevelStarted += InitLevel;
@@ -32,7 +37,8 @@ namespace PuzzleGames
             if(currentLevelNumber <= gameLevels.Count)
             {
                 var levelData =  gameLevels.Find(x => x.levelNumber == currentLevelNumber);
-                currentLevel  =  Instantiate(levelData.LevelPrefab, transform); 
+                currentLevel  =  Instantiate(levelData.LevelPrefab, transform);
+                isGameRunning = true;
             }
             else
             {
@@ -43,11 +49,12 @@ namespace PuzzleGames
         private void DisposeOldLevel()
         {
             Destroy(currentLevel);
+            isGameRunning = false;
             InitLevel();
         }
         public bool IsGameCompleted()
         {
-            return currentLevelNumber >= gameLevels.Count;
+            return currentLevelNumber == gameLevels.Count;
         }
     }
 }
