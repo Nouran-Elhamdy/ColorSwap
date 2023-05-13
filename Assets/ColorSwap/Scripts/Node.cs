@@ -7,12 +7,11 @@ namespace PuzzleGames
    public class Node : MonoBehaviour
     {
         #region Public Variables
-
         public Node[] connectedNodes;
         public Color occuppiedColor;
-
         #endregion
 
+        #region Public Methods
         public bool IsColorRepeated()
         {
             if (connectedNodes.Length > 1)
@@ -24,5 +23,11 @@ namespace PuzzleGames
                 return false;
             }
         }
+        public bool IsConnectedToNode(Node otherNode)
+        {
+            return connectedNodes.Any(connectedNode => connectedNode == otherNode);
+        }
+        #endregion
+
     }
 }

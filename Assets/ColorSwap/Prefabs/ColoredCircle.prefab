@@ -104,7 +104,6 @@ MonoBehaviour:
   isDragging: 0
   canSwap: 0
   effect: {fileID: 5213939332814232026}
-  force: 10
 --- !u!50 &-5057757015565161343
 Rigidbody2D:
   serializedVersion: 4
@@ -135,7 +134,7 @@ CircleCollider2D:
   m_GameObject: {fileID: 1311528519527978571}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 214b687088093c44eb11badc960a29c6, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0

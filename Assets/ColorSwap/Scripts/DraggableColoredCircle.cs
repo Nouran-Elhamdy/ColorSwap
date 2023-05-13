@@ -1,3 +1,4 @@
+using DG.Tweening;
 using UnityEngine;
 
 namespace PuzzleGames
@@ -6,17 +7,19 @@ namespace PuzzleGames
     public class DraggableColoredCircle : MonoBehaviour
     {
         #region Public Variables
-
         public Node nodeHolder;
         public bool isDragging;
         public bool canSwap;
-        DraggableColoredCircle other;
+        #endregion
+
+        #region Private Variables
         Color circleColor;
+        DraggableColoredCircle other;
         [SerializeField] SpriteRenderer effect;
         #endregion
 
-        #region Unity Callbacks
 
+        #region Unity Callbacks
         private void Start()
         {
             circleColor = GetComponent<SpriteRenderer>().color;
@@ -45,10 +48,13 @@ namespace PuzzleGames
         {
             if (collision.TryGetComponent(out other) && Manager.NodeManager.currentColor == this)
             {
-                canSwap = Manager.NodeManager.IsConnectedToNode(nodeHolder, other.nodeHolder);
+                canSwap = nodeHolder.IsConnectedToNode(other.nodeHolder);
             }
         }
+        #endregion
 
+        #region PrivateMethods      
+            
         private void DragCircle()
         {
             isDragging = true;
@@ -62,7 +68,7 @@ namespace PuzzleGames
 
             if (!canSwap)
             {
-                transform.position = nodeHolder.transform.position;
+                transform.DOMove(nodeHolder.transform.position, 0.3f);
             }
             else
             {

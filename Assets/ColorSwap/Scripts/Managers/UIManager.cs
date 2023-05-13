@@ -1,25 +1,29 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using System.Linq;
 
 namespace PuzzleGames
 {
     public class UIManager : Manager
     {
+        #region Public Variables
         public List<View> gameViews;
+        #endregion
+
+        #region Unity Callbacks
         private void Start()
         {
             SwitchToView(ViewType.StartView);
         }
+        #endregion
+
+        #region Public Methods
         public void SwitchToView(ViewType view1)
         {
-            gameViews.ForEach(x => x.viewGameObject.SetActive(false));
+            gameViews.ForEach(x => x.baseView.HideView());
 
             var viewToEnable = gameViews.Find(x => x.viewType == view1);
-            viewToEnable.viewGameObject.SetActive(true);
+            viewToEnable.baseView.ShowView();
         }
+        #endregion
     }
 }
 

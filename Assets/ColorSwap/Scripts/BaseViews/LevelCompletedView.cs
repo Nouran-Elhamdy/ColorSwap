@@ -6,6 +6,7 @@ namespace PuzzleGames
 {
     public class LevelCompletedView : BaseView
     {
+        #region Private Variables
         [SerializeField] Button nextLevelButton;
         [SerializeField] Button quitGameButton;
 
@@ -13,7 +14,9 @@ namespace PuzzleGames
         [SerializeField] GameObject nextLevelRect;
 
         [SerializeField] GameObject confetti;
+        #endregion
 
+        #region Unity Callbacks
         private void Start()
         {
             confetti.gameObject.SetActive(true);   
@@ -31,9 +34,12 @@ namespace PuzzleGames
             nextLevelButton.onClick.RemoveListener(OnClickNextLevelButton);
             quitGameButton.onClick.RemoveListener(OnClicQuitGameButton);
         }
-        public void OnClickNextLevelButton()
+        #endregion
+
+        #region Unity GUI Callbacks
+        private void OnClickNextLevelButton()
         {
-            if(Manager.LevelManager.IsGameCompleted())
+            if (Manager.LevelManager.IsGameCompleted())
             {
                 nextLevelRect.SetActive(false);
                 gameCompletedRect.SetActive(true);
@@ -43,13 +49,13 @@ namespace PuzzleGames
                 Manager.UIManager.SwitchToView(ViewType.GameView);
                 LevelManager.OnLevelCompleted?.Invoke();
             }
-           
         }
         private void OnClicQuitGameButton()
         {
             Application.Quit();
             Debug.Log("Quit Game.");
         }
+        #endregion
     }
 }
 

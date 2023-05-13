@@ -5869,11 +5869,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameViews:
   - viewType: 0
-    viewGameObject: {fileID: 1578922957}
+    baseView: {fileID: 1578922961}
   - viewType: 1
-    viewGameObject: {fileID: 2066657815}
+    baseView: {fileID: 2066657818}
   - viewType: 2
-    viewGameObject: {fileID: 1757476922}
+    baseView: {fileID: 1757476926}
 --- !u!4 &829026538
 Transform:
   m_ObjectHideFlags: 0
@@ -6832,6 +6832,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentColor: {fileID: 0}
+  moveDuration: 1
 --- !u!4 &1776113553
 Transform:
   m_ObjectHideFlags: 0
@@ -6906,7 +6907,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15e5958cd486bec409e63127154db9c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  resetLevelButton: {fileID: 224270695}
   levelNumberText: {fileID: 246258706}
 --- !u!1 &2103844699
 GameObject:

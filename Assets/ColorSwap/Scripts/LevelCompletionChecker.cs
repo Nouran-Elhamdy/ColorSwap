@@ -1,6 +1,5 @@
 using UnityEngine;
 using System.Linq;
-using System;
 
 namespace PuzzleGames
 {
@@ -13,16 +12,16 @@ namespace PuzzleGames
         #region Unity Callbacks
         private void OnEnable()
         {
-            NodeManager.OnSwappedCircle += CheckLevel;
+            NodeManager.OnSwappedCircle += CheckLevelCompletion;
         }
         private void OnDisable()
         {
-            NodeManager.OnSwappedCircle -= CheckLevel;
+            NodeManager.OnSwappedCircle -= CheckLevelCompletion;
         }
         #endregion
 
         #region Event Callbacks
-        private void CheckLevel()
+        private void CheckLevelCompletion()
         {
             if(IsLevelCompleted())
             {

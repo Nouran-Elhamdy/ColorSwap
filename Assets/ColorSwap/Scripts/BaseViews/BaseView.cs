@@ -1,10 +1,9 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BaseView : MonoBehaviour
 {
+    #region Public Methods
     public virtual void ShowView()
     {
         gameObject.SetActive(true);    
@@ -13,12 +12,14 @@ public class BaseView : MonoBehaviour
     {
         gameObject.SetActive(false);
     }
+    #endregion
+
 }
 [Serializable]
 public struct View
 {
     public ViewType viewType;
-    public GameObject viewGameObject;
+    public BaseView baseView;
 }
 
 public enum ViewType
