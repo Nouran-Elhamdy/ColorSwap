@@ -68,6 +68,10 @@ PrefabInstance:
       propertyPath: nodeHolderTransform
       value: 
       objectReference: {fileID: 7455423453592269057}
+    - target: {fileID: 3690552127047560661, guid: 8680b087976fca84fbb61021222ceb46, type: 3}
+      propertyPath: nodeHolder
+      value: 
+      objectReference: {fileID: 3276536083456871370}
     - target: {fileID: 3794908588646415527, guid: 8680b087976fca84fbb61021222ceb46, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -145,6 +149,10 @@ PrefabInstance:
       propertyPath: nodeHolderTransform
       value: 
       objectReference: {fileID: 7455423453168590900}
+    - target: {fileID: 3690552127047560661, guid: 8680b087976fca84fbb61021222ceb46, type: 3}
+      propertyPath: nodeHolder
+      value: 
+      objectReference: {fileID: 915342639427203234}
     - target: {fileID: 3794908588646415527, guid: 8680b087976fca84fbb61021222ceb46, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -222,6 +230,10 @@ PrefabInstance:
       propertyPath: nodeHolderTransform
       value: 
       objectReference: {fileID: 7455423453658921525}
+    - target: {fileID: 3690552127047560661, guid: 8680b087976fca84fbb61021222ceb46, type: 3}
+      propertyPath: nodeHolder
+      value: 
+      objectReference: {fileID: 827243810677659138}
     - target: {fileID: 3794908588646415527, guid: 8680b087976fca84fbb61021222ceb46, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -289,7 +301,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2532596117705591449, guid: fbfb70b0a48e5064381610a387377cbc, type: 3}
       propertyPath: m_DynamicOccludee
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2532596117705591449, guid: fbfb70b0a48e5064381610a387377cbc, type: 3}
       propertyPath: m_Sprites.Array.data[0]

@@ -27,6 +27,7 @@ namespace PuzzleGames
             if(IsLevelCompleted())
             {
                 Debug.Log("Level Is Completed");
+                Manager.UIManager.SwitchToView(ViewType.LevelCompletedView);
             }
             else
             {

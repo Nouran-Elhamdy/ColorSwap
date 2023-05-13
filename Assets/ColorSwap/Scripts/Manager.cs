@@ -28,6 +28,26 @@ namespace PuzzleGames
                 return m_NodeManager;
             }
         }
+        private static UIManager m_UIManager;
+        public static UIManager UIManager
+        {
+            get
+            {
+                if (!m_UIManager)
+                    m_UIManager = GetManager<UIManager>();
+                return m_UIManager;
+            }
+        }
+        private static LevelManager m_LevelManager;
+        public static LevelManager LevelManager
+        {
+            get
+            {
+                if (!m_LevelManager)
+                    m_LevelManager = GetManager<LevelManager>();
+                return m_LevelManager;
+            }
+        }
         #endregion
 
         #region Unity Callbacks
