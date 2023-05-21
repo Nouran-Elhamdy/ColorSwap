@@ -1,11 +1,12 @@
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace PuzzleGames
 {
     public class UIManager : Manager
     {
         #region Public Variables
-        public List<View> gameViews;
+        [SerializeField] public List<View> gameViews;
         #endregion
 
         #region Unity Callbacks

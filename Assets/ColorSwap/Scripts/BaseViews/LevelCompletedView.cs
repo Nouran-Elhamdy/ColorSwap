@@ -1,6 +1,6 @@
-using System;
 using UnityEngine;
 using UnityEngine.UI;
+using DG.Tweening;
 
 namespace PuzzleGames
 {
@@ -17,27 +17,26 @@ namespace PuzzleGames
         #endregion
 
         #region Unity Callbacks
-        private void Start()
-        {
-            confetti.gameObject.SetActive(true);   
-        }
         private void OnEnable()
         {
             Manager.LevelManager.isGameRunning = false;
-            confetti.gameObject.SetActive(true);
+
+            PushInYAxis(nextLevelRect,1, 2);
+            EnableConfetti(true);
             nextLevelButton.onClick.AddListener(OnClickNextLevelButton);
             quitGameButton.onClick.AddListener(OnClicQuitGameButton);
         }
         private void OnDisable()
         {
-           if(confetti) confetti.gameObject.SetActive(false);
+            PushInYAxis(nextLevelRect, -1, 2);
+            EnableConfetti(false);
             nextLevelButton.onClick.RemoveListener(OnClickNextLevelButton);
             quitGameButton.onClick.RemoveListener(OnClicQuitGameButton);
         }
         #endregion
 
         #region Unity GUI Callbacks
-        private void OnClickNextLevelButton()
+        public void OnClickNextLevelButton()
         {
             if (Manager.LevelManager.IsGameCompleted())
             {
@@ -49,6 +48,17 @@ namespace PuzzleGames
                 Manager.UIManager.SwitchToView(ViewType.GameView);
                 LevelManager.OnLevelCompleted?.Invoke();
             }
+        }
+        #endregion
+
+        #region Private Methods
+        private void PushInYAxis(GameObject obj,int direction, float duration)
+        {
+            obj.transform.DOMoveY(295 * direction, duration);
+        }
+        private void EnableConfetti(bool enable)
+        {
+            if (confetti) confetti.gameObject.SetActive(enable);
         }
         private void OnClicQuitGameButton()
         {

@@ -8,14 +8,17 @@ namespace PuzzleGames
 {
     public class LevelManager : Manager
     {
+        #region Public Variables
         public static Action OnLevelStarted;
         public static Action OnLevelCompleted;
 
+        public bool isGameRunning;
         public int currentLevelNumber;
         public GameObject currentLevel;
         public List<LevelData> gameLevels = new List<LevelData>();
-        public bool isGameRunning;
+        #endregion
 
+        #region Unity Callbacks
         private void Start()
         {
             isGameRunning = true;
@@ -30,7 +33,13 @@ namespace PuzzleGames
             OnLevelStarted -= InitLevel;
             OnLevelCompleted -= DisposeOldLevel;
         }
+        #endregion
 
+        #region Public Methods
+        public bool IsGameCompleted()
+        {
+            return currentLevelNumber == gameLevels.Count;
+        }
         public void InitLevel()
         {
             currentLevelNumber++;
@@ -45,17 +54,16 @@ namespace PuzzleGames
                 Debug.Log("No More Levels To Load");
             }
         }
+        #endregion
 
+        #region Private Methods
         private void DisposeOldLevel()
         {
             Destroy(currentLevel);
             isGameRunning = false;
             InitLevel();
         }
-        public bool IsGameCompleted()
-        {
-            return currentLevelNumber == gameLevels.Count;
-        }
+        #endregion
     }
 }
 

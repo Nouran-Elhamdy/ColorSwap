@@ -6,7 +6,7 @@ namespace PuzzleGames
    public class LevelCompletionChecker : MonoBehaviour
     {
         #region Public Variables
-        public Node[] allLevelNodes;
+        [SerializeField] public Node[] allLevelNodes;
         #endregion
 
         #region Unity Callbacks

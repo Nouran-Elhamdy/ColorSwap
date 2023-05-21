@@ -51,10 +51,18 @@ namespace PuzzleGames
                 canSwap = nodeHolder.IsConnectedToNode(other.nodeHolder);
             }
         }
+        private void OnTriggerExit2D(Collider2D collision)
+        {
+            if (collision.TryGetComponent(out other) && Manager.NodeManager.currentColor == this)
+            {
+                canSwap = false;
+                Manager.NodeManager.currentColor = null;
+            }
+        }
         #endregion
 
         #region PrivateMethods      
-            
+
         private void DragCircle()
         {
             isDragging = true;
